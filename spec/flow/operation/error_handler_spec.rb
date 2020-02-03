@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Flow::Operation::ErrorHandler, type: :module do
-  include_context "with an example operation", [
-    Flow::Operation::Failures,
-    Flow::Operation::Execute,
-    Flow::Operation::Status,
-    described_class,
-  ]
+  include_context "with an example operation"
 
   describe ".handle_error" do
     let(:example_error) { Class.new(StandardError) }

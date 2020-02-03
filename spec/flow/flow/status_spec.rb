@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Flow::Status, type: :module do
-  include_context "with example flow having state", [ Flow::Operations, Flow::Flux, described_class ]
+RSpec.describe Flow::Flow::Status, type: :module do
+  include_context "with example flow having state", [ Flow::Flow::Operations, Flow::Flow::Flux, described_class ]
 
   shared_examples_for "a flow status driven by array presence" do |status_method, array_method, true_if_empty = false|
     subject { example_flow.public_send(status_method) }

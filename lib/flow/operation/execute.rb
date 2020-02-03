@@ -12,7 +12,7 @@ module Flow
         attr_reader :operation_failure
 
         set_callback :execute, :around, ->(_, block) { surveil(:execute) { block.call } }
-        set_callback :execute, :before, -> { raise Operation::Errors::AlreadyExecuted }, if: :executed?
+        set_callback :execute, :before, -> { raise AlreadyExecutedError }, if: :executed?
       end
 
       def execute!

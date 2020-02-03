@@ -1,12 +1,20 @@
 require "bundler/setup"
 require "simplecov"
 
-require "rspice"
+SimpleCov.start do
+  add_filter "/spec/"
+  add_filter "/rspec/"
+end
+
+require "spicery/spec_helper"
 require "shoulda-matchers"
 
 require_relative "../lib/flow/spec_helper"
 
+require "flow"
+
 require_relative "support/shared_context/with_a_bottles_active_record"
+require_relative "support/shared_context/with_a_users_active_record"
 require_relative "support/shared_context/with_an_example_state"
 require_relative "support/shared_context/with_an_example_operation"
 require_relative "support/shared_context/with_example_flow_having_state"
@@ -15,14 +23,9 @@ require_relative "support/shared_context/with_operation_callbacks"
 require_relative "support/shared_context/with_operations_for_a_flow"
 
 require_relative "support/shared_examples/a_transaction_wrapper"
+require_relative "support/shared_examples/credentials_are_validated"
 require_relative "support/shared_examples/method_is_wrapped_in_a_transaction"
 require_relative "support/shared_examples/operation_double_runs_are_prevented"
-
-SimpleCov.start do
-  add_filter "/spec/"
-end
-
-require "flow"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -40,6 +43,7 @@ Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :active_model
+    with.library :active_record
   end
 end
 

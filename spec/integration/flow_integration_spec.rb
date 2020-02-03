@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require_relative "../support/test_classes/bottles_on_the_wall_flow"
+require_relative "../support/test_classes/sign_in_flow"
 
 RSpec.describe Flow, type: :integration do
   include_context "with a bottles active record"
+  include_context "with a users active record"
 
   subject(:flow) { BottlesOnTheWallFlow.trigger(**input) }
 
@@ -188,7 +190,7 @@ RSpec.describe Flow, type: :integration do
         subject(:trigger!) { BottlesOnTheWallFlow.trigger!(**input) }
 
         it "raises" do
-          expect { trigger! }.to raise_error Flow::Errors::StateInvalid
+          expect { trigger! }.to raise_error Flow::StateInvalidError
         end
       end
     end

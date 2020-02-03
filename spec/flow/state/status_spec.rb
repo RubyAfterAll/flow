@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Flow::State::Status, type: :module do
-  include_context "with an example state", described_class
+  include_context "with an example state"
 
   describe "#validated?" do
     subject { example_state.validated? }

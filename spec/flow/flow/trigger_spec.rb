@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Flow::Trigger, type: :module do
-  include_context "with example flow having state", [ Flow::Operations, Flow::Flux, described_class ]
+RSpec.describe Flow::Flow::Trigger, type: :module do
+  include_context "with example flow having state", [ Flow::Flow::Operations, Flow::Flow::Flux, described_class ]
 
   it { is_expected.to delegate_method(:valid?).to(:state).with_prefix(true) }
 
@@ -48,7 +48,7 @@ RSpec.describe Flow::Trigger, type: :module do
       let(:state_valid?) { false }
 
       it "does not executes operations" do
-        expect { trigger! }.to raise_error Flow::Errors::StateInvalid
+        expect { trigger! }.to raise_error Flow::StateInvalidError
         expect(example_flow).not_to have_received(:flux)
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe Flow::Trigger, type: :module do
     end
 
     context "with invalid state" do
-      before { allow(example_flow).to receive(:trigger!).and_raise(Flow::Errors::StateInvalid) }
+      before { allow(example_flow).to receive(:trigger!).and_raise(Flow::StateInvalidError) }
 
       it { is_expected.to eq example_flow }
     end

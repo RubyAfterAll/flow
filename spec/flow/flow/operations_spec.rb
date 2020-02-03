@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Flow::Operations, type: :module do
+RSpec.describe Flow::Flow::Operations, type: :module do
   include_context "with example flow having state", described_class
 
   describe ".operations" do

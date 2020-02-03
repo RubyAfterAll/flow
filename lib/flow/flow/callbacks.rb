@@ -2,12 +2,14 @@
 
 # Callbacks provide an extensible mechanism for hooking into a Flow.
 module Flow
-  module Callbacks
-    extend ActiveSupport::Concern
+  module Flow
+    module Callbacks
+      extend ActiveSupport::Concern
 
-    included do
-      include ActiveSupport::Callbacks
-      define_callbacks :initialize, :trigger, :flux
+      included do
+        include ActiveSupport::Callbacks
+        define_callbacks :initialize, :trigger, :flux
+      end
     end
   end
 end

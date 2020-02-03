@@ -38,7 +38,7 @@ module Flow
 
         def ensure_validation_before(method)
           around_method method do |*arguments|
-            raise Flow::State::Errors::NotValidated unless validated?
+            raise NotValidatedError unless validated?
 
             super(*arguments)
           end

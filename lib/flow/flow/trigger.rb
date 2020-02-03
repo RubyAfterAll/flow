@@ -2,37 +2,39 @@
 
 # Triggering a Flow executes all its operations in sequential order (see `Flow::Flux`) *iff* it has a valid state.
 module Flow
-  module Trigger
-    extend ActiveSupport::Concern
+  module Flow
+    module Trigger
+      extend ActiveSupport::Concern
 
-    class_methods do
-      def trigger!(*arguments)
-        new(*arguments).trigger!
+      class_methods do
+        def trigger!(*arguments)
+          new(*arguments).trigger!
+        end
+
+        def trigger(*arguments)
+          new(*arguments).trigger
+        end
       end
 
-      def trigger(*arguments)
-        new(*arguments).trigger
+      included do
+        delegate :valid?, :validated?, to: :state, prefix: true
+
+        set_callback :trigger, :around, ->(_, block) { surveil(:trigger) { block.call } }
       end
-    end
 
-    included do
-      delegate :valid?, :validated?, to: :state, prefix: true
+      def trigger!
+        raise StateInvalidError unless state_valid?
 
-      set_callback :trigger, :around, ->(_, block) { surveil(:trigger) { block.call } }
-    end
+        run_callbacks(:trigger) { flux }
 
-    def trigger!
-      raise Flow::Errors::StateInvalid unless state_valid?
+        self
+      end
 
-      run_callbacks(:trigger) { flux }
-
-      self
-    end
-
-    def trigger
-      trigger!
-    rescue Flow::Errors::StateInvalid
-      self
+      def trigger
+        trigger!
+      rescue StateInvalidError
+        self
+      end
     end
   end
 end

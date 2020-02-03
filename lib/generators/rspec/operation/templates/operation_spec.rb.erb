@@ -19,6 +19,10 @@ RSpec.describe <%= class_name %>, type: :operation do
 
   it { is_expected.to inherit_from ApplicationOperation }
 
+  # it { is_expected.to access_state :foo }
+  # it { is_expected.to read_state :bar }
+  # it { is_expected.to write_state :baz }
+
   describe "#execute" do
     subject(:execute) { operation.execute }
 

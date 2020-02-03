@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class CountOutCurrentBottles < Flow::OperationBase
+  state_accessor :stanza
+  state_reader :bottles
+
   def behavior
-    state.stanza.push "#{state.bottles} on the wall#{", #{state.bottles}" if state.stanza.empty?}."
+    stanza.push "#{bottles} on the wall#{", #{bottles}" if stanza.empty?}."
   end
 end

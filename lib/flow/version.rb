@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Flow
-  VERSION = "0.10.3"
+  VERSION = "0.10.6"
 end

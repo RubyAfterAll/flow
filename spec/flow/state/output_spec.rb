@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Flow::State::Output, type: :module do
-  include_context "with an example state", [ Flow::State::Status, described_class ]
+  include_context "with an example state"
 
   describe ".output" do
     it_behaves_like "an input object with a class collection attribute", :output, :_outputs do
@@ -38,15 +38,15 @@ RSpec.describe Flow::State::Output, type: :module do
 
     shared_examples_for "can't read or write output" do
       it "raises on attempted write" do
-        expect { example_state.test_output0 = :test }.to raise_error Flow::State::Errors::NotValidated
-        expect { example_state.test_output1 = :test }.to raise_error Flow::State::Errors::NotValidated
-        expect { example_state.test_output2 = :test }.to raise_error Flow::State::Errors::NotValidated
+        expect { example_state.test_output0 = :test }.to raise_error Flow::NotValidatedError
+        expect { example_state.test_output1 = :test }.to raise_error Flow::NotValidatedError
+        expect { example_state.test_output2 = :test }.to raise_error Flow::NotValidatedError
       end
 
       it "raises on attempted read" do
-        expect { example_state.test_output0 }.to raise_error Flow::State::Errors::NotValidated
-        expect { example_state.test_output1 }.to raise_error Flow::State::Errors::NotValidated
-        expect { example_state.test_output2 }.to raise_error Flow::State::Errors::NotValidated
+        expect { example_state.test_output0 }.to raise_error Flow::NotValidatedError
+        expect { example_state.test_output1 }.to raise_error Flow::NotValidatedError
+        expect { example_state.test_output2 }.to raise_error Flow::NotValidatedError
       end
     end
 
@@ -105,7 +105,7 @@ RSpec.describe Flow::State::Output, type: :module do
 
       context "without running validations" do
         it "raises" do
-          expect { example_state.outputs }.to raise_error Flow::State::Errors::NotValidated
+          expect { example_state.outputs }.to raise_error Flow::NotValidatedError
         end
       end
 

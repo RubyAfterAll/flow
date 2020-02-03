@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 RSpec.describe Flow::Operation::Accessors, type: :module do
-  include_context "with an example operation", described_class
+  include_context "with an example operation"
 
   let(:operation_class) { example_operation_class }
   let(:state_attribute) { Faker::Lorem.word.to_sym }
   let(:state_attribute_writer) { "#{state_attribute}=".to_sym }
   let(:state_attribute_value) { Faker::Hipster.word }
 
-  before do
-    state.attr_accessor(state_attribute)
-  end
+  before { example_state_class.attr_accessor(state_attribute) }
 
   shared_examples_for "it has exactly ? of type" do |count, tracker_type|
     subject { operation.public_send(tracker_name).count(state_attribute) }
@@ -29,7 +27,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
   end
 
   shared_examples_for "it inherits correctly" do |method, accessor_types|
-    subject(:operation) { operation_class.new(state) }
+    subject(:operation) { operation_class.new(example_state) }
 
     Array.wrap(accessor_types).each do |accessor_type|
       context "when a #{method} is defined in a child class" do
@@ -66,7 +64,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
   describe ".state_reader" do
     subject(:operation) do
       operation_class.__send__(:state_reader, state_attribute)
-      operation_class.new(state)
+      operation_class.new(example_state)
     end
 
     it_behaves_like "it inherits correctly", :state_reader, :reader
@@ -94,7 +92,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
   describe ".state_writer" do
     subject(:operation) do
       operation_class.__send__(:state_writer, state_attribute)
-      operation_class.new(state)
+      operation_class.new(example_state)
     end
 
     it_behaves_like "it inherits correctly", :state_writer, :writer
@@ -122,7 +120,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
   describe ".state_accessor" do
     subject(:operation) do
       operation_class.__send__(:state_accessor, state_attribute)
-      operation_class.new(state)
+      operation_class.new(example_state)
     end
 
     it_behaves_like "it inherits correctly", :state_accessor, %i[reader writer accessor]

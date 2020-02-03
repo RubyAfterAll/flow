@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Flow::Operation::Status, type: :module do
-  include_context "with an example operation", [ Flow::Operation::Execute, described_class ]
+  include_context "with an example operation"
 
   shared_examples_for "a callback tracking predicate" do |callback, predicate|
     subject { example_operation.public_send(predicate) }

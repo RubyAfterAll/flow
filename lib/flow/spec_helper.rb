@@ -2,7 +2,7 @@
 
 require "spicerack/spec_helper"
 
-require_relative "spec_helper/custom_matchers"
-require_relative "spec_helper/shared_contexts"
-require_relative "spec_helper/shoulda_matcher_helper"
-require_relative "spec_helper/rspec_configuration"
+require_relative "rspec/custom_matchers"
+require_relative "rspec/shared_contexts"
+require_relative "rspec/shoulda_matcher_helper"
+require_relative "rspec/configuration"

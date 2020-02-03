@@ -3,7 +3,7 @@
 RSpec.shared_context "with a bottles active record" do
   before(:all) do
     ActiveRecord::Base.connection.create_table :bottles do |t|
-      t.string :of, unique: true
+      t.string :of, index: { unique: true }
       t.integer :number_on_the_wall, default: 99
       t.integer :number_passed_around, default: 0
     end
