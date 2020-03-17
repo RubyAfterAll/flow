@@ -13,6 +13,7 @@ require "flow/concerns/transaction_wrapper"
 
 require "flow/malfunction/base"
 require "flow/malfunction/invalid_state"
+require "flow/malfunction/failed_operation"
 
 require "flow/flow_base"
 require "flow/operation_base"
@@ -24,6 +25,7 @@ module Flow
 
   class FlowError < Error; end
   class StateInvalidError < FlowError; end
+  class FluxError < FlowError; end
 
   class OperationError < Error; end
   class AlreadyExecutedError < OperationError; end
