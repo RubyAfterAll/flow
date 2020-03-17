@@ -7,7 +7,7 @@ module Flow
       contextualize :state
       delegate :errors, to: :state, prefix: true
 
-      def build
+      on_build do
         state_errors.details.each do |attribute_name, error_details|
           attribute_messages = state_errors.messages[attribute_name]
 

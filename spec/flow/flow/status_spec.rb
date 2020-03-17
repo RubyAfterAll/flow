@@ -80,4 +80,20 @@ RSpec.describe Flow::Flow::Status, type: :concern do
       it { is_expected.to be false }
     end
   end
+
+  describe "#malfunction?" do
+    subject { example_flow }
+
+    context "with malfunction" do
+      let(:malfunction) { instance_double(Flow::Malfunction::Base) }
+
+      before { allow(example_flow).to receive(:malfunction).and_return(malfunction) }
+
+      it { is_expected.to be_malfunction }
+    end
+
+    context "without malfunction" do
+      it { is_expected.not_to be_malfunction }
+    end
+  end
 end

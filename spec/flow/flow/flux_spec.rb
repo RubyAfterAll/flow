@@ -52,43 +52,54 @@ RSpec.describe Flow::Flow::Flux, type: :concern do
     end
 
     context "with error" do
-      let(:expected_exception) { instance_of(example_error) }
-
-      before { allow(example_flow).to receive(:flux!).and_raise example_error }
+      before { example_flow_class.__send__(:operations, example_operation) }
 
       context "when Flow::FluxError" do
-        let(:example_error) { Flow::FluxError }
+        let(:example_operation) do
+          Class.new(Flow::OperationBase) do
+            failure :example
+
+            def behavior
+              fail! :example, with_details: true
+            end
+          end
+        end
+
+        let(:operation_failure) { example_flow.failed_operation.operation_failure }
+        let(:expected_problem) { :example }
+        let(:expected_details) { Hash[:with_details, true] }
 
         it "calls logs the exception without raising" do
           flux
           expect(example_flow).
             to have_received(:info).
-            with(:error_executing_operation, state: expected_state, exception: expected_exception)
+            with(:error_executing_operation, state: expected_state, exception: instance_of(Flow::FluxError))
+        end
+
+        it "malfunctions" do
+          flux
+          expect(example_flow).to be_malfunction
+          expect(example_flow.malfunction).to be_an_instance_of Flow::Malfunction::FailedOperation
+          expect(example_flow.malfunction).to have_attributes(problem: expected_problem)
+          expect(example_flow.malfunction.details).to have_attributes(with_details: true)
         end
       end
 
       context "when a descendant StandardError" do
-        let(:example_error) { Class.new(StandardError) }
+        let(:example_operation) do
+          Class.new(Flow::OperationBase) do
+            def behavior
+              raise StandardError
+            end
+          end
+        end
 
         it "calls logs the exception and raises" do
-          expect { flux }.to raise_error example_error
+          expect { flux }.to raise_error StandardError
           expect(example_flow).
             to have_received(:info).
-            with(:error_executing_operation, state: expected_state, exception: expected_exception)
+            with(:error_executing_operation, state: expected_state, exception: instance_of(StandardError))
         end
-      end
-    end
-
-    context "when a failure occurs" do
-      let(:expected_exception) { instance_of(Flow::FluxError) }
-
-      before { allow(example_flow).to receive(:flux!).and_raise Flow::FluxError }
-
-      it "logs the exception" do
-        flux
-        expect(example_flow).
-          to have_received(:info).
-          with(:error_executing_operation, state: expected_state, exception: expected_exception)
       end
     end
   end
