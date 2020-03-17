@@ -21,6 +21,7 @@ module Flow
           executable_operations.each do |operation|
             operation.execute
             (@failed_operation = operation) and raise FluxError if operation.failed?
+            
             executed_operations << operation
           end
         end
