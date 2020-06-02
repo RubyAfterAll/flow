@@ -21,7 +21,6 @@ jobs:
         echo "gem 'activemodel', '~> ${{ matrix.rails }}'" >> Gemfile
         echo "gem 'activerecord', '~> ${{ matrix.rails }}'" >> Gemfile
         echo "gem 'activesupport', '~> ${{ matrix.rails }}'" >> Gemfile
-        echo "gem 'railties', '~> ${{ matrix.rails }}'" >> Gemfile
     - name: Set up dependencies
       run: |
         sudo apt-get update
