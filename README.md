@@ -206,11 +206,11 @@ If the `Flow` fails you can see the failures on the instance:
 => false
 
 # get the failure
-> flow.problem
+> flow.operation_failure.problem
 => :charge_unsuccessful
 
 # access unstructured hash passed into failure method
-> flow.details.response_body
+> flow.operation_failure.details.response_body
 => { some_response_body_here: ... }
 ```
 
