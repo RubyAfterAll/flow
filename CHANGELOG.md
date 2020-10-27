@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-## Changes
+### Changes
 
 - Updated rubocop, faker and other development dependencies
 
@@ -22,7 +22,7 @@
 - Add `StateProxy` to deprecate direct state access ([#128](https://github.com/Freshly/flow/pull/128))
 - Add integration testing for State Accessors ([#135](https://github.com/Freshly/flow/pull/135))
 - Add custom matchers for State Accessors and Document ([#136](https://github.com/Freshly/flow/pull/136))
-- Remodularized `Flow` concerns ([#149](https://github.com/Freshly/flow/pull/149))
+- Re-modularized `Flow` concerns ([#149](https://github.com/Freshly/flow/pull/149))
 - Refactor to use `Spicerack::RootObject` ([#145](https://github.com/Freshly/flow/pull/145))
 - Consolidated errors under the root namespace ([#150](https://github.com/Freshly/flow/pull/150))
 
