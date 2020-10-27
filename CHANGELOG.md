@@ -1,5 +1,11 @@
 # Changelog
 
+## Upcoming
+
+## Changes
+
+- Updated rubocop, faker and other development dependencies
+
 ## 0.10.6
 
 *Release Date*: 2020/1/9
