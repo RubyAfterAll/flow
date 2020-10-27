@@ -5,7 +5,7 @@ RSpec.describe Flow::FlowBase, type: :flow do
 
   let(:example_flow_class) { Class.new(described_class) }
   let(:example_state_class) { Class.new(Flow::StateBase) }
-  let(:example_flow_name) { Faker::Internet.domain_word.capitalize }
+  let(:example_flow_name) { Faker::Internet.domain_word.underscore.camelize }
 
   before do
     stub_const("#{example_flow_name}Flow", example_flow_class)

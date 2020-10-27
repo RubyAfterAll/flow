@@ -3,8 +3,8 @@
 RSpec.describe Flow::Operation::Failures::OperationFailure, type: :subclass do
   subject(:example_failure) { described_class.new(problem, **details) }
 
-  let(:problem) { Faker::Internet.domain_word.downcase.to_sym }
-  let(:details) { Hash[*Faker::Lorem.words(4)].symbolize_keys }
+  let(:problem) { Faker::Internet.domain_word.underscore.to_sym }
+  let(:details) { Hash[*Faker::Lorem.words(number: 4)].symbolize_keys }
 
   it { is_expected.to inherit_from StandardError }
 

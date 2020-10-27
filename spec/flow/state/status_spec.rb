@@ -6,7 +6,7 @@ RSpec.describe Flow::State::Status, type: :module do
   describe "#validated?" do
     subject { example_state.validated? }
 
-    before { stub_const(Faker::Internet.domain_word.capitalize, example_state_class) }
+    before { stub_const(Faker::Internet.domain_word.underscore.camelize, example_state_class) }
 
     it { is_expected.to be false }
 
