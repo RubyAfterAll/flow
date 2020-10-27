@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# When an exception is raised during during execution, but a handler can rescue, it causes a failure instead.
+# When an exception is raised during execution, but a handler can rescue, it causes a failure instead.
 module Flow
   module Operation
     module ErrorHandler
