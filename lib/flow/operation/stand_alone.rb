@@ -3,7 +3,7 @@
 # Allows operations to be called outside of a flow via .trigger and .trigger!.
 module Flow
   module Operation
-    module Call
+    module StandAlone
       extend ActiveSupport::Concern
 
       class_methods do

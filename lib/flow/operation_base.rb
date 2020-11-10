@@ -22,6 +22,6 @@ module Flow
     include Operation::Failures
     include Operation::Status
     include Operation::Transactions
-    include Operation::Call
+    include Operation::StandAlone
   end
 end
