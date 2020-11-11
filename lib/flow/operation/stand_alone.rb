@@ -24,13 +24,17 @@ module Flow
 
         def introspected_state_class
           Class.new(StateBase).tap do |state_class|
-            [*_state_readers, *_state_accessors].uniq.each do |method_name|
-              state_class.__send__(:option, method_name)
-            end
-            _state_writers.each do |method_name|
-              state_class.__send__(:output, method_name) unless _state_accessors.include?(method_name)
-            end
+            introspected_state_options.each { |method_name| state_class.__send__(:option, method_name) }
+            introspected_state_outputs.each { |method_name| state_class.__send__(:output, method_name) }
           end
+        end
+
+        def introspected_state_options
+          [*_state_readers, *_state_accessors].uniq
+        end
+
+        def introspected_state_outputs
+          _state_writers - _state_accessors
         end
       end
     end
