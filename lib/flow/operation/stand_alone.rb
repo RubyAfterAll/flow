@@ -22,12 +22,11 @@ module Flow
         end
 
         def introspected_state_class
-          Class.new(StateBase).tap do |state_class|
+          @introspected_state_class ||= Class.new(StateBase).tap do |state_class|
             _state_readers.each { |method_name| state_class.__send__(:option, method_name) }
             _state_writers.each { |method_name| state_class.__send__(:output, method_name) }
           end
         end
-        memoize :introspected_state_class
       end
     end
   end
