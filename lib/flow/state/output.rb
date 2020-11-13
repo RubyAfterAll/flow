@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Output data is created by Operations during runtime and CANNOT be validated or provided as part of the input.
 module Flow
   module State
