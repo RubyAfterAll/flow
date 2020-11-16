@@ -18,7 +18,7 @@ module Flow
         private
 
         def introspected_state(kwargs)
-          introspected_state_class.new(kwargs).tap(&validate)
+          introspected_state_class.new(kwargs).tap(&:validate)
         end
 
         def introspected_state_class
