@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Overides .option in Spicerack::Objects::Options so that a defined option can be opted to behave like an output
 module Flow
   module State
     module Options
