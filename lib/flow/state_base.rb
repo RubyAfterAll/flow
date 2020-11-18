@@ -2,7 +2,6 @@
 
 require_relative "state/arguments"
 require_relative "state/options"
-require_relative "state/outputs"
 
 # A **State** is an aggregation of input and derived data.
 module Flow
@@ -12,6 +11,5 @@ module Flow
 
     include State::Arguments
     include State::Options
-    include State::Outputs
   end
 end
