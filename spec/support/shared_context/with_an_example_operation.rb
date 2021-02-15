@@ -8,7 +8,7 @@ RSpec.shared_context "with an example operation" do
   let(:example_state_class) { Class.new(Flow::StateBase) }
   let(:example_state) { example_state_class.new }
 
-  let(:example_operation_name) { Faker::Internet.domain_word.capitalize }
+  let(:example_operation_name) { Faker::Internet.domain_word.underscore.camelize }
   let(:example_state_name) { "#{example_operation_name}State" }
 
   before do

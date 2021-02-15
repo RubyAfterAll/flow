@@ -19,7 +19,7 @@ RSpec.describe Flow::Flow::Core, type: :concern do
 
     subject(:instance) { example_flow_class.new(**arguments) }
 
-    let(:arguments) { Hash[*Faker::Lorem.words(4)].symbolize_keys }
+    let(:arguments) { Hash[*Faker::Lorem.unique.words(number: 4)].symbolize_keys }
 
     context "when the state class is NOT defined" do
       let(:example_state_name) { "Other#{example_name}State" }

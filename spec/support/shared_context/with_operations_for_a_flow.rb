@@ -4,9 +4,9 @@ RSpec.shared_context "with operations for a flow" do
   let(:operation0_class) { Class.new(Flow::OperationBase) }
   let(:operation1_class) { Class.new(Flow::OperationBase) }
   let(:operation2_class) { Class.new(Flow::OperationBase) }
-  let(:operation0_name) { Faker::Internet.unique.domain_word.capitalize }
-  let(:operation1_name) { Faker::Internet.unique.domain_word.capitalize }
-  let(:operation2_name) { Faker::Internet.unique.domain_word.capitalize }
+  let(:operation0_name) { Faker::Internet.unique.domain_word.underscore.camelize }
+  let(:operation1_name) { Faker::Internet.unique.domain_word.underscore.camelize }
+  let(:operation2_name) { Faker::Internet.unique.domain_word.underscore.camelize }
   let(:operation_classes) { [ operation0_class, operation1_class, operation2_class ] }
   let(:instance_of_operations) do
     operation_classes.map { |operation| instance_of(operation) }

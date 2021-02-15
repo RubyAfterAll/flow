@@ -88,7 +88,7 @@ RSpec.describe Flow::Operation::Failures, type: :concern do
   describe "#<problem>_failure!" do
     subject(:problem_failure!) { example_operation.public_send("#{problem}_failure!".to_sym, **details) }
 
-    let(:details) { Hash[*Faker::Lorem.words(4)].symbolize_keys }
+    let(:details) { Hash[*Faker::Lorem.words(number: 4)].symbolize_keys }
 
     before do
       example_operation_class.__send__(:failure, problem)
@@ -105,7 +105,7 @@ RSpec.describe Flow::Operation::Failures, type: :concern do
   describe "#fail!" do
     subject(:fail!) { example_operation.fail!(problem, **details) }
 
-    let(:details) { Hash[*Faker::Lorem.words(4)].symbolize_keys }
+    let(:details) { Hash[*Faker::Lorem.words(number: 4)].symbolize_keys }
 
     before do
       allow(example_operation).to receive(:error!).and_call_original

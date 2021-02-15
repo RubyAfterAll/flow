@@ -26,8 +26,8 @@ RSpec.describe Flow::State::Output, type: :concern do
     end
 
     before do
-      stub_const(Faker::Internet.unique.domain_word.capitalize, example_state_class)
-      stub_const(Faker::Internet.unique.domain_word.capitalize, example_class)
+      stub_const(Faker::Internet.unique.domain_word.underscore.capitalize, example_state_class)
+      stub_const(Faker::Internet.unique.domain_word.underscore.capitalize, example_class)
     end
   end
 
