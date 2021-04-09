@@ -2,7 +2,7 @@
 
 ## Upcoming
 
-## 0.10.6
+## 0.10.7
 
 *Release Date*: 2021/4/8
 
