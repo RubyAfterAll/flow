@@ -2,6 +2,10 @@
 
 ## Upcoming
 
+## 0.10.6
+
+*Release Date*: 2021/4/8
+
 ### Changes
 
 - Updated rubocop, faker and other development dependencies
