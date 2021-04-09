@@ -2,13 +2,19 @@
 
 ## Upcoming
 
+## 0.10.7.1.pre1
+
+*Release Date*: 2021/4/9
+
+- Fix `have_on_state` matcher for flow specs which don't use StateProxy ([#192](https://github.com/Freshly/flow/pull/192))
+
 ## 0.10.7
 
 *Release Date*: 2021/4/8
 
 ### Changes
 
-- Updated rubocop, faker and other development dependencies
+- Updated rubocop, faker and other development dependencies 
 
 ### Fixes
 
