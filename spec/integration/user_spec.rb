@@ -13,7 +13,9 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_db_index(:email).unique }
 
-  it_behaves_like "credentials are validated"
+  it_behaves_like "credentials are validated" do
+    subject(:described_model) { User.new(email: Faker::Internet.email) }
+  end
 
   describe "#email" do
     let(:upcased_email) { Faker::Internet.email.upcase }

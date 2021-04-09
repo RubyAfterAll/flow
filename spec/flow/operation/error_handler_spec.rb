@@ -5,7 +5,7 @@ RSpec.describe Flow::Operation::ErrorHandler, type: :module do
 
   describe ".handle_error" do
     let(:example_error) { Class.new(StandardError) }
-    let(:example_error_name) { Faker::Internet.domain_word.capitalize }
+    let(:example_error_name) { Faker::Internet.domain_word.underscore.camelize }
 
     before do
       stub_const(example_error_name, example_error)
@@ -16,8 +16,8 @@ RSpec.describe Flow::Operation::ErrorHandler, type: :module do
       subject(:handle_error) { example_operation_class.__send__(:handle_error, example_error) }
 
       context "when the class is within a module" do
-        let(:example_error_name) { "#{Faker::Internet.domain_word.capitalize}::#{root_error_name}" }
-        let(:root_error_name) { Array.new(2) { Faker::Internet.domain_word.capitalize }.join("") }
+        let(:example_error_name) { "#{Faker::Internet.domain_word.underscore.camelize}::#{root_error_name}" }
+        let(:root_error_name) { Array.new(2) { Faker::Internet.domain_word.underscore.camelize }.join("") }
 
         it "uses demodulized class name" do
           handle_error
@@ -26,7 +26,7 @@ RSpec.describe Flow::Operation::ErrorHandler, type: :module do
       end
 
       context "when the class is NOT within a module" do
-        let(:example_error_name) { Array.new(2) { Faker::Internet.domain_word.capitalize }.join("") }
+        let(:example_error_name) { Array.new(2) { Faker::Internet.domain_word.underscore.camelize }.join("") }
 
         it "uses class name" do
           handle_error
@@ -108,10 +108,10 @@ RSpec.describe Flow::Operation::ErrorHandler, type: :module do
 
   describe ".handle_errors" do
     let(:example_error0_class) { Class.new(StandardError) }
-    let(:example_error0_name) { Faker::Internet.unique.domain_word.capitalize }
+    let(:example_error0_name) { Faker::Internet.unique.domain_word.underscore.camelize }
 
     let(:example_error1_class) { Class.new(StandardError) }
-    let(:example_error1_name) { Faker::Internet.unique.domain_word.capitalize }
+    let(:example_error1_name) { Faker::Internet.unique.domain_word.underscore.camelize }
 
     before do
       stub_const(example_error0_name, example_error0_class)
@@ -124,8 +124,8 @@ RSpec.describe Flow::Operation::ErrorHandler, type: :module do
         handle_errors
         expect(example_operation_class).to have_received(:handle_error).with(example_error0_class)
         expect(example_operation_class).to have_received(:handle_error).with(example_error1_class)
-        expect(example_operation).to respond_to("#{example_error0_name.downcase}_failure!".to_sym)
-        expect(example_operation).to respond_to("#{example_error1_name.downcase}_failure!".to_sym)
+        expect(example_operation).to respond_to("#{example_error0_name.underscore}_failure!".to_sym)
+        expect(example_operation).to respond_to("#{example_error1_name.underscore}_failure!".to_sym)
       end
     end
 

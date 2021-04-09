@@ -5,10 +5,13 @@ require "active_record"
 require "active_support"
 
 require "spicery"
+require "malfunction"
 
 require "flow/version"
 
 require "flow/concerns/transaction_wrapper"
+
+require "flow/malfunction/base"
 
 require "flow/flow_base"
 require "flow/operation_base"
