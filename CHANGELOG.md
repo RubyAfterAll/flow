@@ -14,7 +14,7 @@
 
 ### Changes
 
-- Updated rubocop, faker and other development dependencies 
+- Updated rubocop, faker and other development dependencies
 
 ### Fixes
 
