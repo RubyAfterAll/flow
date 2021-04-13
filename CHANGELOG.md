@@ -4,7 +4,7 @@
 
 ## 0.10.7.1
 
-*Release Date*: 2021/4/12
+*Release Date*: 2021/4/13
 
 - Fix `have_on_state` matcher for flow specs which don't use StateProxy ([#192](https://github.com/Freshly/flow/pull/192))
 
