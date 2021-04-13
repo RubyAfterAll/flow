@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flow (0.10.7)
+    flow (0.10.7.1)
       activemodel (>= 5.2.1)
       activerecord (>= 5.2.1)
       activesupport (>= 5.2.1)
