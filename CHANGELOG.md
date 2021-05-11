@@ -2,6 +2,12 @@
 
 ## Upcoming
 
+## 0.10.7.2
+
+*Release Date*: 2021/5/11
+
+- Fix `have_on_state` matcher for real ([#192](https://github.com/Freshly/flow/pull/192))
+
 ## 0.10.7.1
 
 *Release Date*: 2021/4/13

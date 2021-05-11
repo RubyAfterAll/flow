@@ -45,7 +45,7 @@ module Flow
       def matches?(object)
         @state_expectations.all? do |key, value|
           # If state is actually a StateProxy, we to access the state directly with _state
-          if object.state.respond_to?(:_state)
+          if object.state.respond_to?(:_state, true)
             expect(object.state.__send__(:_state).public_send(key)).to match value
           else
             expect(object.state.public_send(key)).to match value
