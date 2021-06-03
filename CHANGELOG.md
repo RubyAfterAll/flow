@@ -2,6 +2,12 @@
 
 ## Upcoming
 
+## 0.10.8
+
+*Release Date*: 2021/6/3
+
+- Use Substance objects if they're available ([#196](https://github.com/Freshly/flow/pull/196))
+
 ## 0.10.7.2
 
 *Release Date*: 2021/5/11
