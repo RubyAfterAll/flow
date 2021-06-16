@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "active_model"
-require "active_record"
 require "active_support"
 
 require "spicerack"
+require "conjunction"
 require "malfunction"
 
 require_relative "flow/version"
