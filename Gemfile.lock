@@ -170,7 +170,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 5.2.1)
   bcrypt (~> 3.1.13)
-  bundler (>= 2.0.1)
   flow!
   pry-byebug (>= 3.7.0)
   rake (~> 13.0)
