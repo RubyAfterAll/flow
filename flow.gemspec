@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   # TODO: replace spicerack with substance in next minor version
   # spec.add_runtime_dependency "substance", ">= 0.2.0", "< 1.0"
-  spec.add_runtime_dependency "spicery", ">= 0.26.0.4", "< 1.0"
+  spec.add_runtime_dependency "spicerack", ">= 0.2.0", "< 1.0"
 
   spec.add_runtime_dependency "conjunction", ">= 0.2.0", "< 1.0"
   spec.add_runtime_dependency "short_circu_it", ">= 0.2.0", "< 1.0"

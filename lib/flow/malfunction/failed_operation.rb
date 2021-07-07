@@ -2,6 +2,7 @@
 
 module Flow
   module Malfunction
+    # A problem arising when an Operation fails for some reason
     class FailedOperation < Base
       contextualize :operation
       delegate :operation_failure, to: :operation

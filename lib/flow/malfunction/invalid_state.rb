@@ -2,6 +2,7 @@
 
 module Flow
   module Malfunction
+    # A problem arising when a Flow fails without processing any operations due to its initial state being invalid
     class InvalidState < Base
       uses_attribute_errors
       contextualize :state
