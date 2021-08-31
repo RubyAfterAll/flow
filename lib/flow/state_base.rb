@@ -5,7 +5,7 @@ require_relative "state/options"
 
 # A **State** is an aggregation of input and derived data.
 module Flow
-  class StateBase < Spicerack::OutputObject
+  class StateBase < Substance::OutputObject
     include Conjunction::Junction
     suffixed_with "State"
 

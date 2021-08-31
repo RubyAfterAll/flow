@@ -15,8 +15,8 @@ module Flow
       class_methods do
         def state_proxy_class
           @state_proxy_class ||= Class.new(StateProxy).tap do |proxy_class|
-            delegate_method_names = _state_writers.map { |method_name| "#{method_name}=" } + _state_readers
-            proxy_class.delegate(*delegate_method_names, to: :state) if delegate_method_names.any?
+            delegate_method_names = _state_writers.map { |method_name| "#{method_name}=" } + _state_readers.to_a
+            proxy_class.delegate(*delegate_method_names, to: :_state) if delegate_method_names.any?
           end
         end
       end
