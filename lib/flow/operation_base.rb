@@ -11,7 +11,7 @@ require_relative "operation/transactions"
 
 # An **Operation** is a service object which is executed with a **State**.
 module Flow
-  class OperationBase < RootObject
+  class OperationBase < Substance::RootObject
     include TransactionWrapper
     include Operation::Accessors
     include Operation::Callbacks

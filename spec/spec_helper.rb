@@ -13,6 +13,7 @@ require "active_record"
 require "pry"
 
 require_relative "../lib/flow/spec_helper"
+require "rspice"
 
 require "flow"
 
