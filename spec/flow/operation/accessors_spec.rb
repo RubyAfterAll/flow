@@ -155,7 +155,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
       it_behaves_like "it has no tracker variables of type", :accessor
     end
 
-    context "when a writer has already been defined" do
+    context "when a reader has already been defined" do
       before { operation_class.__send__(:state_reader, state_attribute) }
 
       it_behaves_like "it has exactly one tracker variable of type", :writer
@@ -181,40 +181,26 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
     context "when prefix is given" do
       include_context "with prefix option set"
 
-      describe "reader" do
-        context "when prefix is true" do
-          let(:prefix) { true }
+      context "when prefix is true" do
+        let(:prefix) { true }
 
-          it_behaves_like "it has exactly one tracker variable of type", :reader
+        it_behaves_like "it has exactly one tracker variable of type", :reader
+        it_behaves_like "it has exactly one tracker variable of type", :writer
+        it_behaves_like "it has exactly one tracker variable of type", :accessor
 
-          it { is_expected.to delegate_method(state_attribute).to(:state).with_prefix(prefix_name) }
-        end
-
-        context "when prefix is a string" do
-          let(:prefix) { Faker::Lorem.unique.word }
-
-          it_behaves_like "it has exactly one tracker variable of type", :reader
-
-          it { is_expected.to delegate_method(state_attribute).to(:state).with_prefix(prefix_name) }
-        end
+        it { is_expected.to delegate_method(state_attribute).to(:state).with_prefix(prefix_name) }
+        it { is_expected.to delegate_method(state_attribute_writer).to(:state).with_prefix(prefix_name).with_arguments(state_attribute_value) }
       end
 
-      describe "writer" do
-        context "when prefix is true" do
-          let(:prefix) { true }
+      context "when prefix is a string" do
+        let(:prefix) { Faker::Lorem.unique.word }
 
-          it_behaves_like "it has exactly one tracker variable of type", :writer
+        it_behaves_like "it has exactly one tracker variable of type", :reader
+        it_behaves_like "it has exactly one tracker variable of type", :writer
+        it_behaves_like "it has exactly one tracker variable of type", :accessor
 
-          it { is_expected.to delegate_method(state_attribute_writer).to(:state).with_prefix(prefix_name).with_arguments(state_attribute_value) }
-        end
-
-        context "when prefix is a string" do
-          let(:prefix) { Faker::Lorem.unique.word }
-
-          it_behaves_like "it has exactly one tracker variable of type", :writer
-
-          it { is_expected.to delegate_method(state_attribute_writer).to(:state).with_prefix(prefix_name).with_arguments(state_attribute_value) }
-        end
+        it { is_expected.to delegate_method(state_attribute).to(:state).with_prefix(prefix_name) }
+        it { is_expected.to delegate_method(state_attribute_writer).to(:state).with_prefix(prefix_name).with_arguments(state_attribute_value) }
       end
     end
 
@@ -226,7 +212,7 @@ RSpec.describe Flow::Operation::Accessors, type: :module do
       it_behaves_like "it has exactly one tracker variable of type", :accessor
     end
 
-    context "when a writer has already been defined" do
+    context "when a reader has already been defined" do
       before { operation_class.__send__(:state_reader, state_attribute) }
 
       it_behaves_like "it has exactly one tracker variable of type", :writer
