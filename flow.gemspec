@@ -21,12 +21,9 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "activemodel", ">= 5.2.1"
   spec.add_runtime_dependency "activesupport", ">= 5.2.1"
 
-  # TODO: replace spicerack with substance in next minor version
-  # spec.add_runtime_dependency "substance", ">= 0.2.0", "< 1.0"
-  spec.add_runtime_dependency "spicerack", ">= 0.2.0", "< 1.0"
-
   spec.add_runtime_dependency "conjunction", ">= 0.2.0", "< 1.0"
   spec.add_runtime_dependency "short_circu_it", ">= 0.2.0", "< 1.0"
+  spec.add_runtime_dependency "substance", ">= 0.26.0", "< 1.0"
   spec.add_runtime_dependency "technologic", ">= 0.2.0", "< 1.0"
   spec.add_runtime_dependency "malfunction", ">= 0.2.0", "< 1.0"
 

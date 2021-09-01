@@ -11,6 +11,7 @@ require "shoulda-matchers"
 
 require "active_record"
 require "pry"
+require "rspice"
 
 require_relative "../lib/flow/spec_helper"
 
