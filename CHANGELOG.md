@@ -2,6 +2,15 @@
 
 ## Upcoming
 
+## 0.11.0
+
+*Release Date*: 2021/9/1
+
+- Add `prefix` option to state accessor methods ([#203](https://github.com/Freshly/flow/pull/203), [#206](https://github.com/Freshly/flow/pull/206))
+- Use Set instead of Array for accessor trackers ([#205](https://github.com/Freshly/flow/pull/205))
+- Allow multiple state accessor definitions at once ([#207](https://github.com/Freshly/flow/pull/207))
+- Use Substance instead of duplicative base objects, remove Spicerack dependency ([#185](https://github.com/Freshly/flow/pull/185))
+
 ## 0.10.9
 
 *Release Date*: 2021/6/16
