@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Write modular and reusable business logic that's understandable and maintainable."
   spec.description   = "Tired of kitchen sink services, god-objects, and fat-everything? So were we. Get in the flow."
-  spec.homepage      = "https://github.com/Freshly/flow"
+  spec.homepage      = "https://github.com/RubyAfterAll/flow"
   spec.license       = "MIT"
 
   spec.files         = Dir["README.md", "LICENSE.txt", "lib/**/{*,.[a-z]*}"]
