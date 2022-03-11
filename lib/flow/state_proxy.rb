@@ -13,7 +13,7 @@ module Flow
 
       ActiveSupport::Deprecation.warn(
         "Direct state access of `#{method_name}' on #{_state.inspect} will be removed in a future version of flow. "\
-        "Use a state accessor instead - for more information see github/freshly/flow/deprecation_notice"
+        "Use a state accessor instead - for more information see github/RubyAfterAll/flow/deprecation_notice"
       )
       _state.public_send(method_name, *arguments, &block)
     end
