@@ -2,6 +2,8 @@
 
 ## Upcoming
 
+- Add official support for ruby 3.1 ([#205](https://github.com/RubyForAll/flow/pull/3))
+
 ## 0.11.0
 
 *Release Date*: 2021/9/1
