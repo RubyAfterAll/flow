@@ -2,7 +2,8 @@
 
 ## Upcoming
 
-- Add official support for ruby 3.1 ([#205](https://github.com/RubyForAll/flow/pull/3))
+- Add official support for ruby 3.1 ([#3](https://github.com/RubyForAll/flow/pull/3))
+- Add `with invalid state` shared context ([#4](https://github.com/RubyForAll/flow/pull/4))
 
 ## 0.11.0
 
