@@ -2,6 +2,13 @@
 
 ## Upcoming
 
+## 0.11.1
+
+*Release Date*: 2022/3/25
+
+- Add official support for ruby 3.1 ([#3](https://github.com/RubyForAll/flow/pull/3))
+- Add `with invalid state` shared context ([#4](https://github.com/RubyForAll/flow/pull/4))
+
 ## 0.11.0
 
 *Release Date*: 2021/9/1

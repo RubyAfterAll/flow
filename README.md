@@ -216,12 +216,12 @@ If the `Flow` fails you can see the failures on the instance:
 
 ## Wiki
 
-Learn more with our wiki [Getting Started](https://github.com/Freshly/flow/wiki/Getting-Started#installation) page.
+Learn more with our wiki [Getting Started](https://github.com/RubyAfterAll/flow/wiki/Getting-Started#installation) page.
 
 You also can download wiki to have offline access.
 Just simply do:
 
-`git clone git@github.com:Freshly/flow.wiki.git`
+`git clone git@github.com:RubyAfterAll/flow.wiki.git`
 
 
 ## License
