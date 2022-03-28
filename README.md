@@ -97,7 +97,7 @@ class CreateCharge < ApplicationOperation
   private
 
   def payment_method
-    payment_method.present? payment_method : user.default_payment_method
+    payment_method.present? ? payment_method : user.default_payment_method
   end
 end
 ```
